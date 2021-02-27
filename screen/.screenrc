@@ -1,0 +1,31 @@
+shell -${SHELL}  # dash (-) is for login shells
+shelltitle ''
+vbell off
+autodetach on
+startup_message off
+defscrollback 200000
+
+hardstatus alwayslastline
+#hardstatus string "%{kw}${USER}@%H | %{kw}%-w%{ky}%n %t%{-}%+w %=%{bw}@%H%{kw} | %l | %D %Y-%m-%d %c"
+hardstatus string "%{= ky}${USER}@%H | %{= ky}%-w%{=r}%n %t%{-}%+w %= | %l | %D %Y-%m-%d %c"
+
+#hardstatus alwayslastline
+#hardstatus string "%{= ky}${USER}@%H | %-Lw%{=r}%20>%n %t%{= ky}%+Lw %{= ky}%-= | %l | %d.%m.%y %c "
+
+# Enable mouse scrolling and scroll bar history scrolling
+termcapinfo xterm* ti@:te@
+
+bindkey ^[[1;3D prev
+bindkey ^[[1;3C next
+
+# %{= ky}     set color to yellow on black.
+# %{= yk}     set color to black on yellow.
+# %{=r}       reverse the color attrs
+# %-Lw        all window #s, titles, and flags before the current window.
+# %n %t       current window number and title.
+# %+Lw        all windows #s, titles, and flags after the current window.
+# %-=         pad remaining spaces.
+# %M%d        month and day, like MmmDD.
+# %c          current time, like HH:MM.
+# %H          hostname
+
