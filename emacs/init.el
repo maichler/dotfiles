@@ -1,5 +1,7 @@
 (defvar EMACS_DIR "~/.emacs.d/")
 
+(defvar efs/default-font-size 120)
+(defvar efs/default-variable-font-size 120)
 
 ;; Disable certain things when in a graphical environment
 (when (display-graphic-p)
@@ -43,8 +45,8 @@
 (setq use-package-always-ensure t)
 
 ;; Help Emacs to correctly load environment variables across operating systems
-(use-package exec-path-from-shell :ensure t)
-(exec-path-from-shell-initialize)
+;;(use-package exec-path-from-shell :ensure t)
+;;(exec-path-from-shell-initialize)
 
 ;;
 ;; Load platform specific variables using specific files. E.g linux.el. 
@@ -72,6 +74,14 @@
 
 (column-number-mode)
 (global-display-line-numbers-mode t)
+
+(set-face-attribute 'default nil :font "Fira Code Retina" :height efs/default-font-size)
+
+;; Set the fixed pitch face
+(set-face-attribute 'fixed-pitch nil :font "Fira Code Retina" :height efs/default-font-size)
+
+;; Set the variable pitch face
+(set-face-attribute 'variable-pitch nil :font "Cantarell" :height efs/default-variable-font-size :weight 'regular)
 
 (use-package undo-fu
   :config
